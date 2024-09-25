@@ -12,6 +12,7 @@ public class Main {
             case 1:
                 ClickButton1();
                 break;
+                /* Последующие кейсы*/
             default:
                 System.out.println("Некорректный номер задания.");
                 break;
