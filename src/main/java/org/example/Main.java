@@ -15,6 +15,9 @@ public class Main {
             case 2:
                 Scales2();
                 break;
+            case 3:
+                Bell3();
+                break;
             default:
                 System.out.println("Некорректный номер задания.");
                 break;
@@ -39,5 +42,12 @@ public class Main {
 
         balance.addRight(1);
         balance.result(); // Выводит "R"
+    }
+
+    private static void Bell3() {
+        Bell bell = new Bell();
+        for (int i = 0; i < 10; i++) {
+            bell.sound();
+        }
     }
 }
