@@ -12,7 +12,9 @@ public class Main {
             case 1:
                 ClickButton1();
                 break;
-                /* Последующие кейсы*/
+            case 2:
+                Scales2();
+                break;
             default:
                 System.out.println("Некорректный номер задания.");
                 break;
@@ -24,5 +26,18 @@ public class Main {
     private static void ClickButton1() {
         Button button = new Button();
         button.click();
+    }
+
+    private static void Scales2() {
+        Balance balance = new Balance();
+        balance.addLeft(5);
+        balance.addRight(3);
+        balance.result(); // Выводит "L"
+
+        balance.addRight(2);
+        balance.result(); // Выводит "="
+
+        balance.addRight(1);
+        balance.result(); // Выводит "R"
     }
 }
