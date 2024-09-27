@@ -21,6 +21,9 @@ public class Main {
             case 4:
                 Separator4();
                 break;
+            case 5:
+                Table5();
+                break;
             default:
                 System.out.println("Некорректный номер задания.");
                 break;
@@ -63,6 +66,30 @@ public class Main {
         separator.addNumber(507);
         separator.even();
         separator.odd();
+    }
+
+    private static void Table5() {
+        Table table = new Table(3, 4); // 3 строки и 4 столбца
+        table.setValue(0, 0, 1);
+        table.setValue(0, 1, 2);
+        table.setValue(0, 2, 3);
+        table.setValue(0, 3, 4);
+        table.setValue(1, 0, 5);
+        table.setValue(1, 1, 6);
+        table.setValue(1, 2, 7);
+        table.setValue(1, 3, 8);
+        table.setValue(2, 0, 9);
+        table.setValue(2, 1, 10);
+        table.setValue(2, 2, 11);
+        table.setValue(2, 3, 12);
+
+        System.out.println("Таблица:");
+        System.out.println(table);
+        System.out.println("Количество строк: " + table.rows());
+        System.out.println("Количество столбцов: " + table.cols());
+        System.out.println("Значение в ячейке (1, 2): " + table.getValue(1, 2));
+        System.out.println("Перевод таблицы в строку: " + table.toString());
+        System.out.println("Среднее арифметическое: " + table.average());
     }
 
 }
