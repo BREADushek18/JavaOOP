@@ -1,6 +1,11 @@
 package org.example;
 
 import java.util.Scanner;
+import geometry2d.Circle;
+import geometry2d.Rectangle;
+import geometry3d.Cylinder;
+import Exceptions.InvalidRadiusException;
+import Exceptions.NegativeHeightException;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,6 +28,9 @@ public class Main {
                 break;
             case 5:
                 Table5();
+                break;
+            case 6:
+                geometricShapes6();
                 break;
             default:
                 System.out.println("Некорректный номер задания.");
@@ -91,5 +99,74 @@ public class Main {
         System.out.println("Перевод таблицы в строку: " + table.toString());
         System.out.println("Среднее арифметическое: " + table.average());
     }
+
+    private static void geometricShapes6() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Выберите задачу:");
+        System.out.println("1. Площадь круга");
+        System.out.println("2. Площадь прямоугольника");
+        System.out.println("3. Объем цилиндра");
+
+        int taskNumber = scanner.nextInt();
+        switch (taskNumber) {
+            case 1:
+                calculateCircleArea(scanner);
+                break;
+            case 2:
+                calculateRectangleArea(scanner);
+                break;
+            case 3:
+                calculateCylinderVolume(scanner);
+                break;
+            default:
+                System.out.println("Неверный выбор. Пожалуйста, выберите 1, 2 или 3.");
+        }
+        scanner.close();
+    }
+
+    private static void calculateCircleArea(Scanner scanner) {
+        System.out.print("Введите радиус круга: ");
+        double radius = scanner.nextDouble();
+        try {
+            Circle circle = new Circle(radius);
+            System.out.println(circle);
+            System.out.println("Площадь круга: " + circle.area());
+        } catch (InvalidRadiusException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    private static void calculateRectangleArea(Scanner scanner) {
+        System.out.print("Введите ширину прямоугольника: ");
+        double width = scanner.nextDouble();
+        System.out.print("Введите высоту прямоугольника: ");
+        double height = scanner.nextDouble();
+
+        if (width <= 0 || height <= 0) {
+            System.err.println("Ширина и высота должны быть положительными.");
+            return;
+        }
+
+        Rectangle rectangle = new Rectangle(width, height);
+        System.out.println(rectangle);
+        System.out.println("Площадь прямоугольника: " + rectangle.area());
+    }
+
+    private static void calculateCylinderVolume(Scanner scanner) {
+        System.out.print("Введите радиус основания цилиндра: ");
+        double radius = scanner.nextDouble();
+        System.out.print("Введите высоту цилиндра: ");
+        double height = scanner.nextDouble();
+
+        try {
+            Circle base = new Circle(radius);
+            Cylinder cylinder = new Cylinder(base, height);
+            System.out.println(cylinder);
+            System.out.println("Объем цилиндра: " + cylinder.volume());
+        } catch (InvalidRadiusException | NegativeHeightException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
 
 }
