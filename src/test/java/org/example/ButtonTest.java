@@ -1,6 +1,5 @@
-package example;
+package org.example;
 
-import org.example.Button;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

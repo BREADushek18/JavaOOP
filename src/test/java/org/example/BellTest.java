@@ -1,6 +1,5 @@
-package example;
+package org.example;
 
-import org.example.Bell;
 import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

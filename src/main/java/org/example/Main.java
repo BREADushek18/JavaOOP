@@ -18,6 +18,9 @@ public class Main {
             case 3:
                 Bell3();
                 break;
+            case 4:
+                Separator4();
+                break;
             default:
                 System.out.println("Некорректный номер задания.");
                 break;
@@ -50,4 +53,16 @@ public class Main {
             bell.sound();
         }
     }
+
+    private static void Separator4() {
+        OddEvenSeparator separator = new OddEvenSeparator();
+        separator.addNumber(10);
+        separator.addNumber(22);
+        separator.addNumber(31);
+        separator.addNumber(14);
+        separator.addNumber(507);
+        separator.even();
+        separator.odd();
+    }
+
 }
