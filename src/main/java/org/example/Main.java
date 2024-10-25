@@ -1,6 +1,8 @@
 package org.example;
 
 import java.util.Scanner;
+
+import Exceptions.ZeroBaseException;
 import geometry2d.Circle;
 import geometry2d.Rectangle;
 import geometry3d.Cylinder;
@@ -165,6 +167,8 @@ public class Main {
             System.out.println("Объем цилиндра: " + cylinder.volume());
         } catch (InvalidRadiusException | NegativeHeightException e) {
             System.err.println(e.getMessage());
+        } catch (ZeroBaseException e) {
+            throw new RuntimeException(e);
         }
     }
 

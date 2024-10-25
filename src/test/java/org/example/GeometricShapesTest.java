@@ -1,4 +1,5 @@
 package org.example;
+import Exceptions.ZeroBaseException;
 import geometry2d.Circle;
 import geometry2d.Rectangle;
 import geometry3d.Cylinder;
@@ -44,6 +45,8 @@ public class GeometricShapesTest {
             assertThrows(NegativeHeightException.class, () -> new Cylinder(circle, 0));
         } catch (InvalidRadiusException | NegativeHeightException e) {
             fail("Исключение не должно быть выброшено");
+        } catch (ZeroBaseException e) {
+            throw new RuntimeException(e);
         }
     }
 }
